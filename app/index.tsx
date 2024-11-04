@@ -1,4 +1,5 @@
-import { Text, View } from "react-native";
+import {Button, Text, View} from "react-native";
+import {router} from "expo-router";
 
 export default function Index() {
   return (
@@ -10,6 +11,13 @@ export default function Index() {
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Button
+        title="Start"
+        onPress={(e) => {
+          e.preventDefault()
+          router.replace('../(main)')
+        }}>
+      </Button>
     </View>
   );
 }
