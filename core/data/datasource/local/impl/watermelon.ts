@@ -1,6 +1,7 @@
 import {Database} from '@nozbe/watermelondb'
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite'
 import {migrations, schema} from "@/core/data/datasource/local/impl/watermelon.d";
+import Todo from "@/core/data/datasource/local/entity/todo";
 
 const adapter = new SQLiteAdapter({
   schema,
@@ -15,7 +16,7 @@ const adapter = new SQLiteAdapter({
 const database = new Database({
   adapter,
   modelClasses: [
-    //
+    Todo,
   ],
 })
 
