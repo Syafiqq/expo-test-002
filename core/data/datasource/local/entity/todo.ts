@@ -1,7 +1,8 @@
 import {Model} from '@nozbe/watermelondb'
 import {date, field, text} from "@nozbe/watermelondb/decorators";
+import TodoEntity from "@/core/domain/entity/todo-entity";
 
-export default class Todo extends Model {
+export default class Todo extends Model implements TodoEntity {
   static table = 'todos'
 
   static associations = {}
