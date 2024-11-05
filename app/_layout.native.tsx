@@ -3,6 +3,7 @@ import {SplashScreen, Stack} from "expo-router";
 import {DatabaseProvider} from "@nozbe/watermelondb/DatabaseProvider";
 import database from "@/core/data/datasource/local/impl/watermelon";
 import React, {useCallback, useEffect} from "react";
+import {usePopulateInitialTodosUseCase} from "@/core/di/domain/use-case/use-populate-initial-todos-use-case";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -33,7 +34,9 @@ function Providers({children}: { children: React.ReactNode }) {
 }
 
 function OneTimeSetup({children}: { children: React.ReactNode }) {
+  const populateInitialTodos = usePopulateInitialTodosUseCase();
   const longRunningOperation = async () => {
+    await populateInitialTodos.execute();
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
 
