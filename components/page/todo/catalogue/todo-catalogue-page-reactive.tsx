@@ -4,7 +4,6 @@ import {useCallback, useEffect, useState} from "react";
 import {Query} from "@nozbe/watermelondb";
 import {useDatabase} from "@nozbe/watermelondb/hooks";
 import {EnhancedTodos} from "@/components/page/todo/catalogue/components/todo-list";
-import {todoAppender, todoUpdater} from "@/components/page/todo/catalogue/todo-helper";
 import TodoCatalogueCount from "@/components/page/todo/catalogue/components/todo-catalogue-count";
 
 export function TodoCataloguePageReactive() {
@@ -17,18 +16,6 @@ export function TodoCataloguePageReactive() {
   const callback = useCallback(() => {
     let collection = database.get<Todo>('todos');
     setCollection(collection.query())
-  }, [database]);
-
-  useEffect(() => {
-    const subscription = todoUpdater(database);
-
-    return () => subscription.unsubscribe();
-  }, [database]);
-
-  useEffect(() => {
-    const subscription = todoAppender(database);
-
-    return () => subscription.unsubscribe();
   }, [database]);
 
   if (!collection) {
