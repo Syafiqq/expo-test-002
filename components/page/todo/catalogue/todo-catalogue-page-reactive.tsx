@@ -5,6 +5,7 @@ import {Query} from "@nozbe/watermelondb";
 import {useDatabase} from "@nozbe/watermelondb/hooks";
 import {EnhancedTodos} from "@/components/page/todo/catalogue/components/todo-list";
 import {todoAppender, todoUpdater} from "@/components/page/todo/catalogue/todo-helper";
+import TodoCatalogueCount from "@/components/page/todo/catalogue/components/todo-catalogue-count";
 
 export function TodoCataloguePageReactive() {
   const [collection, setCollection] = useState<Query<Todo> | undefined>(undefined);
@@ -36,6 +37,8 @@ export function TodoCataloguePageReactive() {
 
   return (
     <View style={{flex: 1}}>
+      <TodoCatalogueCount></TodoCatalogueCount>
+      <View style={{height: 8}}></View>
       <EnhancedTodos todos={collection}></EnhancedTodos>
     </View>
   );
