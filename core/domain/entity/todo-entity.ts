@@ -7,6 +7,7 @@ interface TodoEntity {
   updatedAt: Date;
   dueDate: Date | undefined;
   priority: string;
+  picture: string | undefined;
 }
 
 export default TodoEntity;

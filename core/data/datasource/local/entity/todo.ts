@@ -14,4 +14,5 @@ export default class Todo extends Model implements TodoEntity {
   @date('updated_at') updatedAt!: Date;
   @date('due_date') dueDate: Date | undefined;
   @text('priority') priority!: string;
+  @text('picture') picture!: string | undefined;
 }
