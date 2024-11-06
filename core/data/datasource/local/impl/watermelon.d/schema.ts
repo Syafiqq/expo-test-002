@@ -5,7 +5,7 @@ import populateInitial from './schemas/populate-initial'
 export default appSchema({
   version: 1,
   tables: [
-    todos.v1,
+    todos.v2,
     populateInitial.v1,
   ],
 })

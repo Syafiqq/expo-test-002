@@ -58,6 +58,7 @@ class TodoLocalDataSourceImpl implements TodoLocalDataSource {
           record.updatedAt = todo.updatedAt;
           record.dueDate = todo.dueDate;
           record.priority = todo.priority;
+          record.picture = todo.picture;
         }))
       );
     });

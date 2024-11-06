@@ -27,6 +27,7 @@ class PopulateInitialTodosUseCaseImpl implements PopulateInitialTodosUseCase {
           updatedAt: new Date(d.updatedAt),
           dueDate: d.dueDate ? new Date(d.dueDate) : undefined,
           priority: d.priority,
+          picture: d.picture,
         };
       })
     );
