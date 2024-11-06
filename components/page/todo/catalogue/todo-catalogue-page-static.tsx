@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {useDatabase} from "@nozbe/watermelondb/hooks";
 import {TodosComponent} from "@/components/page/todo/catalogue/components/todo-list";
 import TodoCatalogueCount from "@/components/page/todo/catalogue/components/todo-catalogue-count";
+import {TodoDemoButtonCollections} from "@/components/page/todo/catalogue/demo-components/todo-demo-button-collections";
 
 export function TodoCataloguePageStatic() {
   const [collection, setCollection] = useState<TodoEntity[]>([]);
@@ -20,6 +21,8 @@ export function TodoCataloguePageStatic() {
       <TodoCatalogueCount></TodoCatalogueCount>
       <View style={{height: 8}}></View>
       <TodosComponent todos={collection}></TodosComponent>
+      <View style={{height: 8}}></View>
+      <TodoDemoButtonCollections/>
     </View>
   );
 }
