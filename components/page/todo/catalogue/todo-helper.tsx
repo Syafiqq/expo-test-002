@@ -2,6 +2,16 @@ import {Database, Q} from "@nozbe/watermelondb";
 import {interval, Subscription} from "rxjs";
 import Todo from "@/core/data/datasource/local/entity/todo";
 
+export const randomiseTitle = (title: string, value: number): string => {
+  let newTitle = title
+  let match = newTitle.match(/\[\d+]/)
+  if (match) {
+    newTitle = newTitle.replace(match[0], `[${value}]`)
+  } else {
+    newTitle = `${newTitle} - [${value}]`
+  }
+  return newTitle
+}
 export const todoUpdater = (database: Database): Subscription => interval(1000).subscribe({
   next: async (value) => {
     let collection = database.get<Todo>('todos');
@@ -17,14 +27,7 @@ export const todoUpdater = (database: Database): Subscription => interval(1000).
     }
     await database.write(async () => {
       await todo.update((record) => {
-        let newTitle = record.title
-        let match = newTitle.match(/\[\d+]/)
-        if (match) {
-          newTitle = newTitle.replace(match[0], `[${value}]`)
-        } else {
-          newTitle = `${newTitle} - [${value}]`
-        }
-        record.title = newTitle
+        record.title = randomiseTitle(record.title, value)
       })
     })
   }
