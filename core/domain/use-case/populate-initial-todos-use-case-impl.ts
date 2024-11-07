@@ -10,7 +10,7 @@ class PopulateInitialTodosUseCaseImpl implements PopulateInitialTodosUseCase {
   }
 
   async execute(): Promise<void> {
-    const shouldPopulate = this.todoRepository.shouldPopulateInitialTodos();
+    const shouldPopulate = await this.todoRepository.shouldPopulateInitialTodos();
     if (!shouldPopulate) {
       return;
     }
@@ -31,7 +31,7 @@ class PopulateInitialTodosUseCaseImpl implements PopulateInitialTodosUseCase {
       })
     );
 
-    this.todoRepository.setPopulateInitialTodos();
+    await this.todoRepository.setPopulateInitialTodos();
   }
 }
 
