@@ -27,6 +27,15 @@ class TodoLocalDataSourceImpl implements TodoLocalDataSource {
       );
     });
   }
+
+  async saveTodosDirty(todos: TodoEntity[]): Promise<void> {
+    const collection = this.database.get<Todo>('todos');
+    await this.database.write(async () => {
+      await this.database.batch(
+        todos.map(todo => collection.prepareCreateFromDirtyRaw({...todo, id: undefined}))
+      );
+    });
+  }
 }
 
 export default TodoLocalDataSourceImpl;

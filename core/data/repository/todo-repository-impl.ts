@@ -18,6 +18,10 @@ class TodoRepositoryImpl implements TodoRepository {
     return this.local.saveTodos(todos);
   }
 
+  saveTodosDirtyToLocal(todos: TodoEntity[]): Promise<void> {
+    return this.local.saveTodos(todos);
+  }
+
   shouldPopulateInitialTodos(): boolean {
     return this.cache.shouldPopulateInitialTodos()
   }

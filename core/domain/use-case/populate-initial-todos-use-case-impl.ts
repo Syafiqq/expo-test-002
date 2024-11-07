@@ -16,7 +16,7 @@ class PopulateInitialTodosUseCaseImpl implements PopulateInitialTodosUseCase {
     }
 
     const data = todos;
-    await this.todoRepository.saveTodosToLocal(
+    await this.todoRepository.saveTodosDirtyToLocal(
       data.map((d) => {
         return {
           id: d.id,
