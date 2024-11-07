@@ -5,9 +5,9 @@ interface TodoRepository {
 
   saveTodosDirtyToLocal(todos: TodoEntity[]): Promise<void>;
 
-  shouldPopulateInitialTodos(): boolean;
+  shouldPopulateInitialTodos(): Promise<boolean>;
 
-  setPopulateInitialTodos(): void;
+  setPopulateInitialTodos(): Promise<void>;
 }
 
 export default TodoRepository;

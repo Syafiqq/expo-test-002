@@ -22,12 +22,12 @@ class TodoRepositoryImpl implements TodoRepository {
     return this.local.saveTodos(todos);
   }
 
-  shouldPopulateInitialTodos(): boolean {
-    return this.cache.shouldPopulateInitialTodos()
+  shouldPopulateInitialTodos(): Promise<boolean> {
+    return this.local.shouldPopulateInitialTodos()
   }
 
-  setPopulateInitialTodos(): void {
-    return this.cache.setPopulateInitialTodos()
+  setPopulateInitialTodos(): Promise<void> {
+    return this.local.setPopulateInitialTodos()
   }
 }
 

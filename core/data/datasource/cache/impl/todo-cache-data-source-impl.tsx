@@ -8,14 +8,6 @@ class TodoCacheDataSourceImpl implements TodoCacheDataSource {
   constructor() {
     this.storage = storage
   }
-
-  shouldPopulateInitialTodos(): boolean {
-    return this.storage.getBoolean('needPopulateDbMigration') !== false;
-  }
-
-  setPopulateInitialTodos(): void {
-    this.storage.set('needPopulateDbMigration', false);
-  }
 }
 
 export default TodoCacheDataSourceImpl;
