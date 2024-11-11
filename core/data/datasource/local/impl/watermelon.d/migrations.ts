@@ -6,12 +6,6 @@ export default schemaMigrations({
     {
       toVersion: 2,
       steps: [
-        addColumns({
-          table: 'todos',
-          columns: [
-            {name: 'picture', type: 'string', isOptional: true},
-          ],
-        }),
       ],
     },
   ],
