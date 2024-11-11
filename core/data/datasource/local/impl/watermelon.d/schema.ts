@@ -3,9 +3,9 @@ import todos from './schemas/todo'
 import populateInitial from './schemas/populate-initial'
 
 export default appSchema({
-  version: 2,
+  version: 8,
   tables: [
-    todos.v2,
-    populateInitial.v1,
+    todos.v3,
+    populateInitial.v2,
   ],
 })

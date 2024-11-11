@@ -8,4 +8,5 @@ export default class PopulateInitial extends Model {
 
   @text('title') title!: string;
   @field('populated') completed!: boolean;
+  @field('column_3') column3?: string;
 }

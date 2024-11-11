@@ -18,7 +18,18 @@ const v2 = tableSchema({
   ]
 });
 
+const v3 = tableSchema({
+  name: 'todos',
+  columns: [
+    {name: 'title', type: 'string'},
+    {name: 'created_at', type: 'number'},
+    {name: 'updated_at', type: 'number'},
+    {name: 'picture', type: 'string', isOptional: true},
+  ]
+});
+
 export default {
   v1,
   v2,
+  v3,
 }

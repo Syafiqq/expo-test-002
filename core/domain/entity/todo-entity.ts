@@ -3,6 +3,7 @@ interface TodoEntity {
   title: string;
   createdAt: Date;
   updatedAt: Date;
+  picture?: string;
 }
 
 export default TodoEntity;

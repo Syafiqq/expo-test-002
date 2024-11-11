@@ -52,6 +52,7 @@ class TodoLocalDataSourceImpl implements TodoLocalDataSource {
         todos.map(todo => collection.prepareCreate((record) => {
           record._raw.id = todo.id;
           record.title = todo.title;
+          record.picture = todo.picture;
         }))
       );
     });
